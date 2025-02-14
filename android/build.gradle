@@ -7,7 +7,6 @@ buildscript {
         google()
         mavenCentral()
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:8.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -48,10 +47,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+kotlin {
+    jvmToolchain(8) // Define a versão do JVM para 1.8
 }
 
 dependencies {
-
     def coroutinesVersion = '1.6.4'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
